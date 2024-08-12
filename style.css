@@ -9,8 +9,8 @@ body {
         "header header"
         "nav main"
         "footer footer";
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 14fr 1fr;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 10fr 1fr;
     height: 100vh;
 }
 
@@ -30,7 +30,12 @@ body {
 
 .main {
     grid-area: main;
-    padding: 20px;
+    /* padding: 20px; IMPORTANT, if this is added back it makes children not take whole space and adds white space after the footer */
+    display: grid;
+    grid-template-areas:
+        "left-section right-section";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100% 2fr;
 }
 
 .footer {
@@ -39,4 +44,18 @@ body {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+.left-section {
+    grid-area: left-section;
+    padding: 20px;
+    background-color: #29c2ff;
+    color: white;
+}
+
+.right-section {
+    grid-area: right-section;
+    padding: 20px;
+    background-color: #ff9f3f;
+    color: white;
 }
